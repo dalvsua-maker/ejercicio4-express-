@@ -1,0 +1,91 @@
+node ejercicio4.js
+```
+
+---
+
+### GET `/` — Home
+```
+Método:  GET
+URL:     http://localhost:3000/
+Body:    (ninguno)
+```
+Para probar `req.query`, añade parámetros en la pestaña **Query**:
+```
+clave: nombre    valor: Juan
+```
+Equivale a llamar `http://localhost:3000/?nombre=Juan`
+
+---
+
+### POST `/` — Home
+```
+Método:  POST
+URL:     http://localhost:3000/
+Body:    → pestaña "Body" → selecciona "JSON"
+json{
+    "usuario": "Juan",
+    "edad": 25
+}
+```
+
+---
+
+### GET `/products` — Listar productos
+```
+Método:  GET
+URL:     http://localhost:3000/products
+Body:    (ninguno)
+```
+
+---
+
+### POST `/products` — Crear producto
+```
+Método:  POST
+URL:     http://localhost:3000/products
+Body:    → "Body" → "JSON"
+json{
+    "nombre": "Laptop",
+    "precio": 999
+}
+Crea otro para tener datos con qué probar el PUT y DELETE:
+json{
+    "nombre": "Ratón",
+    "precio": 25
+}
+```
+
+---
+
+### PUT `/products/:id` — Actualizar producto
+```
+Método:  PUT
+URL:     http://localhost:3000/products/1
+Body:    → "Body" → "JSON"
+json{
+    "nombre": "Laptop Pro",
+    "precio": 1200
+}
+```
+
+---
+
+### DELETE `/products/:id` — Eliminar producto
+```
+Método:  DELETE
+URL:     http://localhost:3000/products/1
+Body:    (ninguno)
+```
+
+---
+
+### Orden recomendado para probar ✅
+```
+1. GET  /products       → lista vacía []
+2. POST /products       → crea "Laptop"
+3. POST /products       → crea "Ratón"
+4. GET  /products       → ahora aparecen los 2
+5. PUT  /products/1     → actualiza Laptop
+6. GET  /products       → verificas el cambio
+7. DELETE /products/2   → eliminas Ratón
+8. GET  /products       → solo queda Laptop
